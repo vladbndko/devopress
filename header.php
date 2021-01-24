@@ -15,10 +15,10 @@
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="<?php echo Assets::image('favicon/favicon.ico'); ?>">
-    <link rel="icon" href="<?php echo Assets::image('favicon/icon.svg'); ?>" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="<?php echo Assets::image('favicon/apple.png'); ?>">
-    <link rel="manifest" href="<?php echo Assets::get('manifest.webmanifest')?>">
+    <link rel="icon" href="<?php echo Asset::image('favicon/favicon.ico'); ?>">
+    <link rel="icon" href="<?php echo Asset::image('favicon/icon.svg'); ?>" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="<?php echo Asset::image('favicon/apple.png'); ?>">
+    <link rel="manifest" href="<?php echo Asset::get('manifest.webmanifest')?>">
 	<?php wp_head(); ?>
 </head>
 

@@ -1,6 +1,6 @@
 <?php
 
-class Assets
+class Asset
 {
   public static function get($path): string
   {

@@ -90,10 +90,10 @@ add_action('wp_enqueue_scripts', 'devocraft_scripts');
 require get_template_directory() . '/inc/TGM/tgm-init.php';
 
 /**
- * Classes
+ * Helpers
  */
-require get_template_directory() . '/inc/Classes/Site.php';
-require get_template_directory() . '/inc/Classes/Assets.php';
+require get_template_directory() . '/inc/Helpers/Field.php';
+require get_template_directory() . '/inc/Helpers/Asset.php';
 
 /**
  * Carbon Fields

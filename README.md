@@ -19,3 +19,15 @@ make pot
 ```sh
 make favicon
 ```
+## Helpers
+### App
+```php
+App::option('option_name');
+App::meta('id', 'field_name');
+```
+
+### Asset
+```php
+Asset::get('path/to/file'); # /path/to/file
+Asset::image('path/to/image'); # /assets/img/path/to/file
+```
