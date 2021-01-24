@@ -14,9 +14,8 @@
 
 get_header();
 ?>
-
 	<main id="primary" class="site-main">
-
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores corporis debitis deleniti eum itaque maiores placeat possimus saepe. Beatae ea omnis optio, quasi reiciendis rem sapiente ut vel? Exercitationem, natus.
 		<?php
 		if ( have_posts() ) :
 
