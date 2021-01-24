@@ -1,8 +1,12 @@
 # Devocraft WordPress Theme
 
-**Start development:**
+**Setup:**
 ```sh
 make install
+```
+
+**Start development:**
+```sh
 make dev
 ```
 
