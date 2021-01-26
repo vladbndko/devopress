@@ -1,13 +1,13 @@
 <?php
 /**
- * Devocraft functions and definitions
+ * Devopress functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package Devocraft
+ * @package Devopress
  */
 
-if (!function_exists('devocraft_setup')) :
+if (!function_exists('devopress_setup')) :
   /**
    * Sets up theme defaults and registers support for various WordPress features.
    *
@@ -15,15 +15,15 @@ if (!function_exists('devocraft_setup')) :
    * runs before the init hook. The init hook is too late for some features, such
    * as indicating support for post thumbnails.
    */
-  function devocraft_setup()
+  function devopress_setup()
   {
     /*
      * Make theme available for translation.
      * Translations can be filed in the /languages/ directory.
-     * If you're building a theme based on Devocraft, use a find and replace
-     * to change 'devocraft' to the name of your theme in all the template files.
+     * If you're building a theme based on Devopress, use a find and replace
+     * to change 'devopress' to the name of your theme in all the template files.
      */
-    load_theme_textdomain('devocraft', get_template_directory() . '/languages');
+    load_theme_textdomain('devopress', get_template_directory() . '/languages');
 
     /*
      * Let WordPress manage the document title.
@@ -42,11 +42,11 @@ if (!function_exists('devocraft_setup')) :
 
     // This theme uses wp_nav_menu() in one location.
     register_nav_menus([
-      'main' => esc_html__('Main', 'devocraft'),
+      'main' => esc_html__('Main', 'devopress'),
     ]);
   }
 endif;
-add_action('after_setup_theme', 'devocraft_setup');
+add_action('after_setup_theme', 'devopress_setup');
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -55,26 +55,26 @@ add_action('after_setup_theme', 'devocraft_setup');
  *
  * @global int $content_width
  */
-function devocraft_content_width()
+function devopress_content_width()
 {
-  $GLOBALS['content_width'] = apply_filters('devocraft_content_width', 640);
+  $GLOBALS['content_width'] = apply_filters('devopress_content_width', 640);
 }
 
-add_action('after_setup_theme', 'devocraft_content_width', 0);
+add_action('after_setup_theme', 'devopress_content_width', 0);
 
 /**
  * Enqueue scripts and styles.
  */
-function devocraft_scripts()
+function devopress_scripts()
 {
   wp_enqueue_style(
-    'devocraft-theme-css',
+    'devopress-theme-css',
     get_stylesheet_uri(),
     [],
     wp_get_theme()->get('Version')
   );
   wp_enqueue_script(
-    'devocraft-theme-js',
+    'devopress-theme-js',
     get_template_directory_uri() . '/assets/js/dist/theme.min.js',
     array(),
     wp_get_theme()->get('Version'),
@@ -82,7 +82,7 @@ function devocraft_scripts()
   );
 }
 
-add_action('wp_enqueue_scripts', 'devocraft_scripts');
+add_action('wp_enqueue_scripts', 'devopress_scripts');
 
 /**
  * TGM Class
@@ -92,7 +92,7 @@ require get_template_directory() . '/inc/TGM/tgm-init.php';
 /**
  * Helpers
  */
-require get_template_directory() . '/inc/Helpers/Field.php';
+require get_template_directory() . '/inc/Helpers/App.php';
 require get_template_directory() . '/inc/Helpers/Asset.php';
 
 /**

@@ -1,4 +1,4 @@
-# Devocraft WordPress Theme
+# Devopress
 
 **Setup:**
 ```sh

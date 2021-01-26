@@ -1,4 +1,4 @@
-const config = require('../devocraft.config');
+const config = require('../devopress.config');
 const browserSync = require('browser-sync').create();
 
 module.exports = {
@@ -11,7 +11,7 @@ module.exports = {
       },
       notify: false,
       online: true,
-      tunnel: config.name, // Attempt to use the URL https://devocraft.loca.lt
+      tunnel: config.name, // Attempt to use the URL https://devopress.loca.lt
     });
     done();
   },

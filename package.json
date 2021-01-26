@@ -1,5 +1,5 @@
 {
-  "name": "devocraft-wp-theme",
+  "name": "devopress",
   "private": true,
   "devDependencies": {
     "@babel/core": "^7.12.10",
