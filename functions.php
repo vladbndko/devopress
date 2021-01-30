@@ -7,6 +7,9 @@
  * @package Devopress
  */
 
+define('DOMAIN', 'devopress');
+require_once get_template_directory() . '/vendor/autoload.php';
+
 if (!function_exists('devopress_setup')) :
   /**
    * Sets up theme defaults and registers support for various WordPress features.
@@ -23,7 +26,7 @@ if (!function_exists('devopress_setup')) :
      * If you're building a theme based on Devopress, use a find and replace
      * to change 'devopress' to the name of your theme in all the template files.
      */
-    load_theme_textdomain('devopress', get_template_directory() . '/languages');
+    load_theme_textdomain(DOMAIN, get_template_directory() . '/languages');
 
     /*
      * Let WordPress manage the document title.
@@ -42,7 +45,7 @@ if (!function_exists('devopress_setup')) :
 
     // This theme uses wp_nav_menu() in one location.
     register_nav_menus([
-      'main' => esc_html__('Main', 'devopress'),
+      'main' => esc_html__('Main', DOMAIN),
     ]);
   }
 endif;
@@ -73,10 +76,12 @@ function devopress_scripts()
     [],
     wp_get_theme()->get('Version')
   );
+  wp_deregister_script('jquery');
+  wp_deregister_script('jquery-migrate');
   wp_enqueue_script(
     'devopress-theme-js',
     get_template_directory_uri() . '/assets/js/dist/theme.min.js',
-    array(),
+    [],
     wp_get_theme()->get('Version'),
     true
   );
@@ -85,17 +90,8 @@ function devopress_scripts()
 add_action('wp_enqueue_scripts', 'devopress_scripts');
 
 /**
- * TGM Class
+ * Includes
  */
-require get_template_directory() . '/inc/TGM/tgm-init.php';
+require_once get_template_directory() . '/inc/inc.php';
 
-/**
- * Helpers
- */
-require get_template_directory() . '/inc/Helpers/App.php';
-require get_template_directory() . '/inc/Helpers/Asset.php';
 
-/**
- * Carbon Fields
- */
-require get_template_directory() . '/inc/carbon-fields/carbon-fields-init.php';

@@ -1,8 +1,8 @@
-const config = require('../devopress.config');
+const config = require('../devopress.config.json');
 const browserSync = require('browser-sync').create();
 
 module.exports = {
-  browser: function (done) {
+  browser(done) {
     browserSync.init({
       proxy: config.host,
       port: 9090,

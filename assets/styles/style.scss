@@ -9,7 +9,4 @@ Requires PHP: 7.4
 Text Domain: devopress
  */
 
-$fz: 32px;
-p {
-  font-size: $fz;
-}
+@import 'vendor/vendor';

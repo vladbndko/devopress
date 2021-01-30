@@ -9,3 +9,7 @@ pot:
 
 favicon:
 	npm run gulp:favicon
+
+emails:
+	npm run gulp:emails
+

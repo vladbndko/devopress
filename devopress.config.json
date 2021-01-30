@@ -1,0 +1,9 @@
+{
+    "name": "devopress",
+    "text_domain": "devopress",
+    "host": "devopress.local",
+    "recaptcha": {
+        "site_key": "6LcvqUIaAAAAAOaxDULIW9CGdSfAaS5im-FlexMi",
+        "secret_key": "6LcvqUIaAAAAAG2NA-QfWcwsboTVWoe80BmXrjmm"
+    }
+}
