@@ -16,6 +16,12 @@ require get_template_directory() . '/inc/carbon-fields/carbon-fields-init.php';
 require get_template_directory() . '/inc/TGM/tgm-init.php';
 
 /**
+ * Form
+ */
+require get_template_directory() . '/inc/Form.php';
+
+
+/**
  * WP Mail
  */
 require get_template_directory() . '/inc/WP_Mail.php';

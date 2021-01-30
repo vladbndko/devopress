@@ -28,7 +28,29 @@
   <header id="site-header" class="site-header">
   </header>
   <main id="site-main" class="site-main">
-    <form action="<?php echo admin_url('admin-ajax.php?action=send_message');?>" id="send-message">
+    <?php
+    $cities = [
+      [ 'value' => '', 'text' => 'Choose your city', 'attributes' => ['selected', 'hidden', 'disabled']],
+      [ 'value' => 'dnipro', 'text' => 'Dnipro'],
+      [ 'value' => 'kiev', 'text' => 'Kiev'],
+      [ 'value' => 'lviv', 'text' => 'Lviv'],
+    ];
+
+      echo Form::open('send_message', ['class' => 'form-class', 'id' => 'send-message', 'data-form' => 'no-valid']);
+      echo Form::label('name', 'Name');
+      echo Form::text('name', ['id' => 'name', 'class' => 'form-control-lg']);
+      echo Form::color('color', ['id' => 'name']);
+      echo Form::label('city', 'City');
+      echo Form::select('city', $cities, ['data-city' => 'my']);
+      echo Form::close();
+    ?>
+    <form action="<?php echo admin_url('admin-ajax.php?action=send_message'); ?>" id="send-message">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDisabled">
+        <label class="form-check-label" for="flexCheckDisabled">
+          Disabled checkbox
+        </label>
+      </div>
       <div class="form-group">
         <label for="name">Name</label>
         <input class="form-control" id="name" name="name">

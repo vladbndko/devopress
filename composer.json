@@ -9,6 +9,7 @@
     ],
     "require": {
         "dflydev/dot-access-data": "^3.0",
-        "vlucas/valitron": "^1.4"
+        "vlucas/valitron": "^1.4",
+        "tightenco/collect": "^8.19"
     }
 }
