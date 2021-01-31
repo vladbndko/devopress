@@ -36,12 +36,19 @@
       [ 'value' => 'lviv', 'text' => 'Lviv'],
     ];
 
-      echo Form::open('send_message', ['class' => 'form-class', 'id' => 'send-message', 'data-form' => 'no-valid']);
-      echo Form::label('name', 'Name');
-      echo Form::text('name', ['id' => 'name', 'class' => 'form-control-lg']);
-      echo Form::color('color', ['id' => 'name']);
-      echo Form::label('city', 'City');
+    echo Form::open('action', ['attribute-name' => 'value']);
+    echo Form::label('for', 'text', ['attribute-name' => 'value']);
+      echo Form::text('name',  ['attribute-name' => 'value', 'disabled' => 'disabled']);
+      echo Form::email('email',  ['attribute-name' => 'value']);
+      echo Form::number('number', ['attribute-name' => 'value']);
+      echo Form::date('date', ['attribute-name' => 'value']);
+      echo Form::file('file', ['attribute-name' => 'value']);
+      echo Form::color('color', ['attribute-name' => 'value']);
       echo Form::select('city', $cities, ['data-city' => 'my']);
+      echo Form::checkbox('checkbox', 'Choose me', 'value', 'check', ['checked' => 'checked'], ['class' => 'mt-4'], ['class' => 'super-label']);
+    echo Form::radio('type', 'Type 1', 'type-1', 'radio-1');
+    echo Form::radio('type', 'Type 2', 'type-2', 'radio-2');
+    echo Form::textarea('textarea', 'Some text', ['rows' => 10]);
       echo Form::close();
     ?>
     <form action="<?php echo admin_url('admin-ajax.php?action=send_message'); ?>" id="send-message">

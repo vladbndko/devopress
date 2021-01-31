@@ -85,3 +85,163 @@ command.
 
 ### Validation
 For validation uses [Valitron](https://github.com/vlucas/valitron)
+
+## Form build
+
+### Open form
+```php
+<?php
+echo Form::open('action', ['method' => 'POST', 'attribute-name' => 'value']);
+```
+Will output
+```html
+<form action="//localhost:9090/wp-admin/admin-ajax.php?action=action" method="POST" attribute-name="value">
+```
+
+### Close form
+```php
+<?php
+echo Form::close();
+```
+Will output
+```html
+</form>
+```
+
+### Label
+```php
+<?php
+echo Form::label('name', 'Name', ['attribute-name' => 'value']);
+```
+Will output
+```html
+<label for="name" attribute-name="value" class="form-label">Name</label>
+```
+
+### Text
+```php
+<?php
+echo Form::text('name',  ['attribute-name' => 'value']);
+```
+Will output
+```html
+<input name="name" attribute-name="value" class="form-control" type="text" id="name">
+```
+
+### Email
+```php
+<?php
+echo Form::email('email',  ['attribute-name' => 'value']);
+```
+Will output
+```html
+<input name="email" attribute-name="value" type="email" class="form-control" id="email">
+```
+
+### Number
+```php
+<?php
+echo Form::number('number', ['attribute-name' => 'value']);
+```
+Will output
+```html
+<input name="number" attribute-name="value" type="number" class="form-control" id="number">
+```
+
+### Date
+```php
+<?php
+echo Form::date('date', ['attribute-name' => 'value']);
+```
+Will output
+```html
+<input name="date" attribute-name="value" type="date" class="form-control" id="date">
+```
+
+### File
+```php
+<?php
+echo Form::file('file', ['attribute-name' => 'value']);
+```
+Will output
+```html
+<input name="file" type="file" class="form-control" id="file">
+```
+
+### Color
+```php
+<?php
+echo Form::color('color', ['attribute-name' => 'value']);
+```
+Will output
+```html
+<input name="color" id="name" type="color" class="form-control form-control-color">
+```
+
+### Select
+```php
+<?php
+$cities = [
+  [ 'value' => '', 'text' => 'Choose your city', 'attributes' => ['selected', 'hidden', 'disabled']],
+  [ 'value' => 'dnipro', 'text' => 'Dnipro'],
+  [ 'value' => 'kiev', 'text' => 'Kiev'],
+  [ 'value' => 'lviv', 'text' => 'Lviv'],
+];
+echo Form::select('city', $cities, ['data-city' => 'my']);
+```
+Will output
+```html
+<select name="city" data-city="my" class="form-select" id="city">
+    <option value="" selected="" hidden="" disabled="">Choose your city</option>
+    <option value="dnipro">Dnipro</option>
+    <option value="kiev">Kiev</option>
+    <option value="lviv">Lviv</option>
+</select>
+```
+
+### Checkbox
+```php
+<?php
+echo Form::checkbox('checkbox', 'Choose me', 'value', 'check', ['checked' => 'checked'], ['class' => 'mt-4'], ['class' => 'super-label']);
+```
+Will output
+```html
+<div class="form-check mt-4">
+    <input type="checkbox" id="check" name="checkbox" value="value" checked="checked" class="form-check-input">
+    <label for="check" class="form-check-label super-label">
+        Choose me
+    </label>
+</div>
+```
+
+### Radio
+```php
+<?php
+echo Form::radio('type', 'Type 1', 'type-1', 'radio-1');
+echo Form::radio('type', 'Type 2', 'type-2', 'radio-2');
+```
+Will output
+```html
+<div class="form-check">
+    <input type="radio" id="radio-1" name="type" value="type-1" class="form-check-input">
+    <label for="radio-1" class="form-check-label">
+        Type 1
+    </label>
+</div>
+<div class="form-check">
+    <input type="radio" id="radio-2" name="type" value="type-2" class="form-check-input">
+    <label for="radio-2" class="form-check-label">
+        Type 2
+    </label>
+</div>
+```
+
+### Textarea
+```php
+<?php
+echo Form::textarea('textarea', 'Some text', ['rows' => 10]);
+```
+Will output
+```html
+<textarea name="textarea" rows="10" id="textarea" class="form-control">Some text</textarea>
+```
