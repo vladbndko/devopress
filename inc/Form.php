@@ -26,11 +26,14 @@ class Form {
   }
 
   public static function open( string $action, array $attributes = [] ): string {
-    $actionUrl      = admin_url( "admin-ajax.php?action={$action}" );
-    $formHtml       = "<form action='{$actionUrl}'";
+    $formHtml       = "<form action='{$action}'";
     $attributesHtml = self::buildAttributes( $attributes );
 
     return "{$formHtml}{$attributesHtml}>";
+  }
+
+  public static function openAjax( string $action, array $attributes = [] ): string {
+    return self::open(admin_url( "admin-ajax.php?action={$action}" ), $attributes);
   }
 
   public static function close(): string {

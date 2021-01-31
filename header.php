@@ -36,7 +36,7 @@
       [ 'value' => 'lviv', 'text' => 'Lviv'],
     ];
 
-    echo Form::open('action', ['attribute-name' => 'value']);
+    echo Form::openAjax('action', ['attribute-name' => 'value']);
     echo Form::label('for', 'text', ['attribute-name' => 'value']);
       echo Form::text('name',  ['attribute-name' => 'value', 'disabled' => 'disabled']);
       echo Form::email('email',  ['attribute-name' => 'value']);

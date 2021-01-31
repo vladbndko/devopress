@@ -91,7 +91,17 @@ For validation uses [Valitron](https://github.com/vlucas/valitron)
 ### Open form
 ```php
 <?php
-echo Form::open('action', ['method' => 'POST', 'attribute-name' => 'value']);
+echo Form::open('/action.php', ['method' => 'POST', 'attribute-name' => 'value']);
+```
+Will output
+```html
+<form action="/action.php" method="POST" attribute-name="value">
+```
+
+### Open ajax form
+```php
+<?php
+echo Form::openAjax('action', ['method' => 'POST', 'attribute-name' => 'value']);
 ```
 Will output
 ```html
