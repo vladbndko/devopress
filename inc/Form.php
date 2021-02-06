@@ -25,15 +25,15 @@ class Form {
     } )->join( '' );
   }
 
-  public static function open( string $action, array $attributes = [] ): string {
-    $formHtml       = "<form action='{$action}'";
+  public static function open( string $action, array $attributes = []): string {
+    $formHtml = "<form action='{$action}'";
     $attributesHtml = self::buildAttributes( $attributes );
 
     return "{$formHtml}{$attributesHtml}>";
   }
 
-  public static function openAjax( string $action, array $attributes = [] ): string {
-    return self::open(admin_url( "admin-ajax.php?action={$action}" ), $attributes);
+  public static function openAjax( string $action, array $attributes = []): string {
+    return self::open( admin_url( "admin-ajax.php?action={$action}" ), $attributes );
   }
 
   public static function close(): string {
@@ -95,8 +95,8 @@ class Form {
     }
     $attributesHtml = self::buildAttributes( $attributesMerged );
     $optionsCollect = collect( $options );
-    $optionHtml     = $optionsCollect->map( function ( $option ) {
-      $value            = $option['value'];
+    $optionHtml = $optionsCollect->map( function ( $option ) {
+      $value = $option['value'];
       $optionAttributes = '';
       if ( isset( $option['attributes'] ) ) {
         $optionAttributes .= self::buildAttributes( $option['attributes'] );
@@ -121,19 +121,20 @@ class Form {
   }
 
   public static function checkbox( string $name, string $text, string $value, string $id, array $checkboxAttributes = [], array $parentAttributes = [], array $labelAttributes = [] ): string {
-    return self::selector('checkbox', $name, $text, $value, $id, $checkboxAttributes, $parentAttributes, $labelAttributes);
+    return self::selector( 'checkbox', $name, $text, $value, $id, $checkboxAttributes, $parentAttributes, $labelAttributes );
   }
 
   public static function radio( string $name, string $text, string $value, string $id, array $checkboxAttributes = [], array $parentAttributes = [], array $labelAttributes = [] ): string {
-    return self::selector('radio', $name, $text, $value, $id, $checkboxAttributes, $parentAttributes, $labelAttributes);
+    return self::selector( 'radio', $name, $text, $value, $id, $checkboxAttributes, $parentAttributes, $labelAttributes );
   }
 
-  public static function textarea( string $name, string $value, array $attributes = [] ): string {
+  public static function textarea( string $name, string $value = '', array $attributes = [] ): string {
     if ( ! isset( $attributes['id'] ) ) {
       $attributes['id'] = $name;
     }
     $attributesMerged = self::mergeAttributes( $attributes, 'class', 'form-control' );
     $attributesHtml = self::buildAttributes( $attributesMerged );
+
     return "<textarea name='{$name}'{$attributesHtml}>{$value}</textarea>";
   }
 }

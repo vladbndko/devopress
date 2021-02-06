@@ -28,47 +28,28 @@
   <header id="site-header" class="site-header">
   </header>
   <main id="site-main" class="site-main">
-    <?php
-    $cities = [
-      [ 'value' => '', 'text' => 'Choose your city', 'attributes' => ['selected', 'hidden', 'disabled']],
-      [ 'value' => 'dnipro', 'text' => 'Dnipro'],
-      [ 'value' => 'kiev', 'text' => 'Kiev'],
-      [ 'value' => 'lviv', 'text' => 'Lviv'],
-    ];
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <?php
+      echo Form::openAjax('send_message', ['id' => 'send-message']);
+      echo Form::label('name', 'Name');
+      echo Form::text('name');
 
-    echo Form::openAjax('action', ['attribute-name' => 'value']);
-    echo Form::label('for', 'text', ['attribute-name' => 'value']);
-      echo Form::text('name',  ['attribute-name' => 'value', 'disabled' => 'disabled']);
-      echo Form::email('email',  ['attribute-name' => 'value']);
-      echo Form::number('number', ['attribute-name' => 'value']);
-      echo Form::date('date', ['attribute-name' => 'value']);
-      echo Form::file('file', ['attribute-name' => 'value']);
-      echo Form::color('color', ['attribute-name' => 'value']);
-      echo Form::select('city', $cities, ['data-city' => 'my']);
-      echo Form::checkbox('checkbox', 'Choose me', 'value', 'check', ['checked' => 'checked'], ['class' => 'mt-4'], ['class' => 'super-label']);
-    echo Form::radio('type', 'Type 1', 'type-1', 'radio-1');
-    echo Form::radio('type', 'Type 2', 'type-2', 'radio-2');
-    echo Form::textarea('textarea', 'Some text', ['rows' => 10]);
-      echo Form::close();
-    ?>
-    <form action="<?php echo admin_url('admin-ajax.php?action=send_message'); ?>" id="send-message">
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDisabled">
-        <label class="form-check-label" for="flexCheckDisabled">
-          Disabled checkbox
-        </label>
-      </div>
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input class="form-control" id="name" name="name">
-      </div>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" class="form-control" id="email" name="email">
-      </div>
-      <div class="form-group">
-        <label for="message">Message</label>
-        <input class="form-control" id="message" name="message">
-      </div>
+      echo Form::label('email', 'Email');
+      echo Form::email('email');
+
+      echo Form::label('message', 'Message');
+      echo Form::textarea('message');
+      echo Form::label('accepted', 'Agree');
+      echo Form::checkbox('accepted', 'Choose me', 1, 'accepted');
+
+      ?>
       <button type="submit" class="btn btn-primary">SEND</button>
-    </form>
+      <?php
+      echo Form::close();
+      ?>
+
+    </div>
+  </div>
+</div>
