@@ -2,7 +2,7 @@ const axios = require('axios');
 const qs = require('qs');
 const _ = require('lodash');
 const { load } = require('recaptcha-v3');
-const config = require('../../../devopress.config.json');
+const config = require('../../devopress.config.json');
 import message from './message';
 
 /*

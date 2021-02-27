@@ -1,5 +1,4 @@
 const mix = require('laravel-mix');
-const config = require('./devopress.config.json');
 
 require('laravel-mix-tailwind');
 require('laravel-mix-mjml');
@@ -17,7 +16,7 @@ mix
     extension: '.php',
   })
   .browserSync({
-    proxy: config.host,
+    proxy: 'devopress.local',
     notify: false,
     files: ['./**/*.php', './style.css', './script.js'],
   })
