@@ -52,7 +52,7 @@ App::metaRaw('id', 'field_name');
 // Get full path to the file
 App::file('path/to/the/file');
 
-// Get full path to the image from assets/img/folder
+// Get full path to the image from assets/images/folder
 App::image('path/to/the/image');
 ```
 

@@ -1,14 +1,17 @@
 install:
-	npm install
+	composer install; npm install
 
 dev:
-	npm run gulp:dev
+	npm run development
 
-pot:
-	wp i18n make-pot . languages/devocraft.pot
+watch:
+	npm run watch-poll
+
+prod:
+	npm run production
 
 favicon:
-	npm run gulp:favicon
+	npm run favicon
 
-emails:
-	npm run gulp:emails
+pot:
+	wp i18n make-pot . languages/devopress.pot

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "268acf2e6e1d25051e49938d719c4a9b",
+    "content-hash": "20aa42474942e5262fb8aa3fd79a0d42",
     "packages": [
         {
             "name": "dflydev/dot-access-data",
@@ -80,6 +80,47 @@
                 "source": "https://github.com/dflydev/dflydev-dot-access-data/tree/v3.0.0"
             },
             "time": "2021-01-01T22:08:42+00:00"
+        },
+        {
+            "name": "mindkomm/theme-lib-mix",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mindkomm/theme-lib-mix.git",
+                "reference": "75a235b260a87cc2c028044a350f07134c8cbb92"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mindkomm/theme-lib-mix/zipball/75a235b260a87cc2c028044a350f07134c8cbb92",
+                "reference": "75a235b260a87cc2c028044a350f07134c8cbb92",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "mix.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Lukas Gaechter",
+                    "email": "lukas.gaechter@mind.ch",
+                    "homepage": "https://www.mind.ch"
+                }
+            ],
+            "description": "Laravel Mix functions for WordPress projects",
+            "support": {
+                "issues": "https://github.com/mindkomm/theme-lib-mix/issues",
+                "source": "https://github.com/mindkomm/theme-lib-mix/tree/1.1.0"
+            },
+            "time": "2019-02-08T18:43:17+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",

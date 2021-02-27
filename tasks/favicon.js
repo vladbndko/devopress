@@ -5,9 +5,9 @@ const ico = require('gulp-to-ico');
 const svgScaler = require('svg-scaler');
 
 const path = {
-  srcSVG: 'assets/img/raw/Favicon.svg',
-  srcPNG: 'assets/img/raw/Favicon.png',
-  dest: 'assets/img/favicon',
+  srcSVG: 'assets/images/raw/favicon.svg',
+  srcPNG: 'assets/images/raw/favicon.png',
+  dest: 'assets/images/favicon',
 };
 
 function f192() {

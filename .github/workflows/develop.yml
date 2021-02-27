@@ -26,7 +26,6 @@ jobs:
                       - .git/
                       - .github/
                       - .idea/
-                      - tasks/
                       - node_modules/
+                      - assets/scripts/
                       - assets/styles/
-                      - assets/js/src

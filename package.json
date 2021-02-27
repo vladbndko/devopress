@@ -2,34 +2,32 @@
     "name": "devopress",
     "private": true,
     "scripts": {
-        "gulp:dev": "gulp",
-        "gulp:favicon": "gulp favicon",
-        "gulp:emails": "gulp emails"
+        "development": "mix",
+        "watch": "mix watch",
+        "watch-poll": "mix watch -- --watch-options-poll=1000",
+        "hot": "mix watch --hot",
+        "production": "mix --production",
+        "favicon": "gulp favicon"
     },
     "devDependencies": {
-        "@babel/core": "^7.12.10",
-        "@babel/preset-env": "^7.12.11",
-        "babel-loader": "^8.2.2",
-        "babel-plugin-module-resolver": "^4.1.0",
-        "babel-plugin-root-import": "^6.6.0",
-        "browser-sync": "^2.26.13",
+        "browser-sync": "^2.26.14",
+        "browser-sync-webpack-plugin": "^2.2.2",
         "gulp": "^4.0.2",
-        "gulp-autoprefixer": "^7.0.1",
-        "gulp-clean-css": "^4.3.0",
-        "gulp-cli": "^2.3.0",
         "gulp-raster": "^0.2.0",
         "gulp-rename": "^2.0.0",
-        "gulp-sass": "^4.1.0",
-        "gulp-sass-glob": "^1.1.0",
-        "gulp-sourcemaps": "^3.0.0",
         "gulp-to-ico": "^1.0.0",
-        "mjml": "^4.8.1",
-        "node-sass": "^4.14.1",
+        "laravel-mix": "^6.0.13",
+        "laravel-mix-mjml": "^3.0.0",
+        "laravel-mix-purgecss": "^6.0.0",
+        "laravel-mix-tailwind": "^0.1.2",
         "prettier": "2.2.1",
-        "svg-scaler": "^0.1.5",
-        "webpack-stream": "^6.1.1"
+        "resolve-url-loader": "^3.1.2",
+        "sass": "^1.32.8",
+        "sass-loader": "^10.1.1",
+        "svg-scaler": "^0.1.5"
     },
     "dependencies": {
+        "@tailwindcss/forms": "^0.2.1",
         "alpinejs": "^2.8.0",
         "axios": "^0.21.1",
         "bootstrap": "^5.0.0-beta1",
@@ -38,6 +36,7 @@
         "lodash": "^4.17.20",
         "qs": "^6.9.6",
         "recaptcha-v3": "^1.8.0",
+        "tailwindcss": "^2.0.3",
         "toastify-js": "^1.9.3"
     }
 }

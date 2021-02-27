@@ -106,13 +106,13 @@ class App {
   /**
    * Get full path to the image
    *
-   * @param string $path path to the image from assets/img/folder
+   * @param string $path path to the image from assets/images/folder
    *
    * @return string full path to the image
    * @since 1.0.0
    *
    */
   public static function image( string $path ): string {
-    return get_template_directory_uri() . "/assets/img/$path";
+    return get_template_directory_uri() . "/assets/images/$path";
   }
 }
