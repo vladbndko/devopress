@@ -22,8 +22,7 @@ jobs:
                   username: ${{ secrets.username }}
                   password: ${{ secrets.password }}
                   server-dir: ${{ secrets.prod_dir }}
-                  exclude:
-                      - .git/
+                  exclude: .git/
                       - .github/
                       - .idea/
                       - tasks/
