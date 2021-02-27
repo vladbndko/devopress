@@ -15,3 +15,8 @@ favicon:
 
 pot:
 	wp i18n make-pot . languages/devopress.pot
+
+src = assets/images/raw/
+dest = assets/images/
+compress:
+	npx @squoosh/cli ${src}${image} -d ${dest} --${encoder} ${options}

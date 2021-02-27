@@ -256,3 +256,13 @@ Will output
 ```html
 <textarea name="textarea" rows="10" id="textarea" class="form-control">Some text</textarea>
 ```
+
+## Compress image
+Squoosh CLI Adapter
+
+[Squoosh CLI Documentation](https://github.com/GoogleChromeLabs/squoosh/tree/dev/cli)
+```sh
+# image: path from assets/images/raw/
+# encoder: encoder
+make compress image=favicon.png encoder=oxipng
+```
