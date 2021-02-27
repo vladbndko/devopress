@@ -1,6 +1,11 @@
 {
     "name": "devopress",
     "private": true,
+    "scripts": {
+        "gulp:dev": "gulp",
+        "gulp:favicon": "gulp favicon",
+        "gulp:emails": "gulp emails"
+    },
     "devDependencies": {
         "@babel/core": "^7.12.10",
         "@babel/preset-env": "^7.12.11",
@@ -23,11 +28,6 @@
         "prettier": "2.2.1",
         "svg-scaler": "^0.1.5",
         "webpack-stream": "^6.1.1"
-    },
-    "scripts": {
-        "gulp:dev": "gulp",
-        "gulp:favicon": "gulp favicon",
-        "gulp:emails": "gulp emails"
     },
     "dependencies": {
         "alpinejs": "^2.8.0",

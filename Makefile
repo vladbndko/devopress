@@ -12,4 +12,3 @@ favicon:
 
 emails:
 	npm run gulp:emails
-
