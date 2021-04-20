@@ -16,6 +16,9 @@ favicon:
 pot:
 	wp i18n make-pot . languages/devopress.pot
 
+mailhog:
+	~/go/bin/MailHog
+
 src = assets/images/raw/
 dest = assets/images/
 compress:

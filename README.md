@@ -10,7 +10,13 @@ make install
 **Start development:**
 
 ```sh
-make dev
+make watch
+```
+
+**Build:**
+
+```sh
+make prod
 ```
 
 **Make POT file:**
@@ -23,12 +29,6 @@ make pot
 
 ```sh
 make favicon
-```
-
-**Build email templates:**
-
-```sh
-make emails
 ```
 
 ## App Class
@@ -62,7 +62,7 @@ App::image('path/to/the/image');
 
 **Prepare steps**
 
-- Install local SMTP mail server [MailSlurper](https://mailslurper.com/)
+- Install local SMTP mail server [MailSlurper](https://mailslurper.com/) or [MailHog](https://github.com/mailhog/MailHog)
 - Install WordPress plugin [Easy WP SMTP
   ](https://wordpress.org/plugins/easy-wp-smtp/)
 
@@ -71,7 +71,9 @@ App::image('path/to/the/image');
 - From Email Address: Any fake email address
 - From Name: Any fake name
 - SMTP Host: `127.0.0.1`
-- SMTP Port: `2500`
+- SMTP Port: 
+    - MailSlurper: `2500`
+    - MailHog: `1025`
 - SMTP Authentication: `No`
 - Enable Debug Log: `true`
 
@@ -91,7 +93,6 @@ For validation uses [Valitron](https://github.com/vlucas/valitron)
 
 ### Open form
 ```php
-<?php
 echo Form::open('/action.php', ['method' => 'POST', 'attribute-name' => 'value']);
 ```
 Will output
@@ -101,7 +102,6 @@ Will output
 
 ### Open ajax form
 ```php
-<?php
 echo Form::openAjax('action', ['method' => 'POST', 'attribute-name' => 'value']);
 ```
 Will output
@@ -111,7 +111,6 @@ Will output
 
 ### Close form
 ```php
-<?php
 echo Form::close();
 ```
 Will output
@@ -121,7 +120,6 @@ Will output
 
 ### Label
 ```php
-<?php
 echo Form::label('name', 'Name', ['attribute-name' => 'value']);
 ```
 Will output
@@ -131,7 +129,6 @@ Will output
 
 ### Text
 ```php
-<?php
 echo Form::text('name',  ['attribute-name' => 'value']);
 ```
 Will output
@@ -141,7 +138,6 @@ Will output
 
 ### Email
 ```php
-<?php
 echo Form::email('email',  ['attribute-name' => 'value']);
 ```
 Will output
@@ -151,7 +147,6 @@ Will output
 
 ### Number
 ```php
-<?php
 echo Form::number('number', ['attribute-name' => 'value']);
 ```
 Will output
@@ -161,7 +156,6 @@ Will output
 
 ### Date
 ```php
-<?php
 echo Form::date('date', ['attribute-name' => 'value']);
 ```
 Will output
@@ -171,7 +165,6 @@ Will output
 
 ### File
 ```php
-<?php
 echo Form::file('file', ['attribute-name' => 'value']);
 ```
 Will output
@@ -181,7 +174,6 @@ Will output
 
 ### Color
 ```php
-<?php
 echo Form::color('color', ['attribute-name' => 'value']);
 ```
 Will output
@@ -191,7 +183,6 @@ Will output
 
 ### Select
 ```php
-<?php
 $cities = [
   [ 'value' => '', 'text' => 'Choose your city', 'attributes' => ['selected', 'hidden', 'disabled']],
   [ 'value' => 'dnipro', 'text' => 'Dnipro'],
@@ -212,7 +203,6 @@ Will output
 
 ### Checkbox
 ```php
-<?php
 echo Form::checkbox('checkbox', 'Choose me', 'value', 'check', ['checked' => 'checked'], ['class' => 'mt-4'], ['class' => 'super-label']);
 ```
 Will output
@@ -227,7 +217,6 @@ Will output
 
 ### Radio
 ```php
-<?php
 echo Form::radio('type', 'Type 1', 'type-1', 'radio-1');
 echo Form::radio('type', 'Type 2', 'type-2', 'radio-2');
 ```
@@ -249,7 +238,6 @@ Will output
 
 ### Textarea
 ```php
-<?php
 echo Form::textarea('textarea', 'Some text', ['rows' => 10]);
 ```
 Will output
@@ -261,8 +249,10 @@ Will output
 Squoosh CLI Adapter
 
 [Squoosh CLI Documentation](https://github.com/GoogleChromeLabs/squoosh/tree/dev/cli)
+
+Options:
+- image: path from assets/images/raw/
+- encoder: encoder
 ```sh
-# image: path from assets/images/raw/
-# encoder: encoder
 make compress image=favicon.png encoder=oxipng
 ```
