@@ -14,10 +14,10 @@ class App {
    *
    */
   public static function config( string $path ): ?string {
-    $json = file_get_contents(self::file('devopress.config.json'));
-    $config = new Data(json_decode($json, true));
+    $json   = file_get_contents( self::file( 'devopress.config.json' ) );
+    $config = new Data( json_decode( $json, true ) );
 
-    return $config->has($path) ? $config->get($path) : null;
+    return $config->has( $path ) ? $config->get( $path ) : null;
   }
 
   /**
@@ -30,7 +30,7 @@ class App {
    *
    */
   public static function option( string $name ): ?string {
-    if ( ! function_exists( 'carbon_get_theme_option' ) ) {
+    if ( function_exists( 'carbon_get_theme_option' ) ) {
       return esc_html__( carbon_get_theme_option( $name ) );
     }
 
@@ -42,13 +42,47 @@ class App {
    *
    * @param string $name option name
    *
+   * @return array|null escaped option value
+   * @since 1.0.0
+   *
+   */
+  public static function optionRaw( string $name ): ?array {
+    if ( function_exists( 'carbon_get_theme_option' ) ) {
+      return carbon_get_theme_option( $name );
+    }
+
+    return null;
+  }
+
+  /**
+   * Get escaped meta value
+   *
+   * @param string $name option name
+   *
    * @return string|null escaped option value
    * @since 1.0.0
    *
    */
-  public static function optionRaw( string $name ): ?string {
-    if ( ! function_exists( 'carbon_get_theme_option' ) ) {
-      return carbon_get_theme_option( $name );
+  public static function theMeta( string $name ): ?string {
+    if ( function_exists( 'carbon_get_post_meta' ) ) {
+      return esc_html__( carbon_get_the_post_meta( $name ) );
+    }
+
+    return null;
+  }
+
+  /**
+   * Get the raw meta value
+   *
+   * @param string $name option name
+   *
+   * @return string|array|null raw option value
+   * @since 1.0.0
+   *
+   */
+  public static function theMetaRaw( string $name ) {
+    if ( function_exists( 'carbon_get_the_post_meta' ) ) {
+      return carbon_get_the_post_meta( $name );
     }
 
     return null;
@@ -65,7 +99,7 @@ class App {
    *
    */
   public static function meta( int $id, string $name ): ?string {
-    if ( ! function_exists( 'carbon_get_post_meta' ) ) {
+    if ( function_exists( 'carbon_get_post_meta' ) ) {
       return esc_html__( carbon_get_post_meta( $id, $name ) );
     }
 
@@ -83,7 +117,7 @@ class App {
    *
    */
   public static function metaRaw( int $id, string $name ) {
-    if ( ! function_exists( 'carbon_get_post_meta' ) ) {
+    if ( function_exists( 'carbon_get_post_meta' ) ) {
       return carbon_get_post_meta( $id, $name );
     }
 
