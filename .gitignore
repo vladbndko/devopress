@@ -1,3 +1,9 @@
-node_modules
 .idea
+node_modules
 vendor
+.env
+.DS_Store
+.vscode
+style.css
+script.js
+mix-manifest.json

@@ -1,0 +1,8 @@
+@use 'sass:map';
+
+@import '../variables';
+@import '../mixins';
+
+footer.footer {
+  flex-shrink: 0;
+}

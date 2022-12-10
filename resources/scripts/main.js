@@ -1,0 +1,2 @@
+// Alpine
+require('./alpine');

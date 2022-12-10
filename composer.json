@@ -1,16 +1,6 @@
 {
-    "name": "pandafy/devopress",
-    "type": "project",
-    "authors": [
-        {
-            "name": "Vladyslav Bondarenko",
-            "email": "vladbndko@gmail.com"
-        }
-    ],
     "require": {
-        "dflydev/dot-access-data": "^3.0",
         "vlucas/valitron": "^1.4",
-        "tightenco/collect": "^8.19",
-        "mindkomm/theme-lib-mix": "^1.1"
+        "mindkomm/theme-lib-mix": "^1.2"
     }
 }

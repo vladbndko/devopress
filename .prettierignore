@@ -1,3 +1,4 @@
 node_modules
-assets/js/dist
+vendor
 style.css
+script.js

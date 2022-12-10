@@ -1,0 +1,11 @@
+@use 'sass:map';
+
+@import 'variables';
+
+@function color($value) {
+  @return map.get($colors, $value);
+}
+
+@function radius($value) {
+  @return map.get($radius, $value);
+}

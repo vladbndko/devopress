@@ -1,32 +1,14 @@
 const mix = require('laravel-mix');
-
-require('laravel-mix-tailwind');
-require('laravel-mix-mjml');
-require('laravel-mix-purgecss');
+require('dotenv').config();
 
 mix
   .setPublicPath('./')
-  .sass('./assets/styles/style.scss', './')
-  .tailwind('./tailwind.config.js')
-  .purgeCss({
-    content: ['./**/*.php', './assets/**/*.js'],
-  })
-  .js('./assets/scripts/main.js', './script.js')
-  .mjml('inc/emails/templates/src', 'inc/emails/templates', {
-    extension: '.php',
-  })
-  .browserSync({
-    proxy: 'devopress.local',
-    notify: false,
-    files: ['./**/*.php', './style.css', './script.js'],
-  })
+  .js('resources/scripts/main.js', 'script.js')
+  .sass('resources/styles/main.scss', 'style.css')
   .disableSuccessNotifications()
   .version()
   .options({
     processCssUrls: false,
-    sassOptions: {
-      outputStyle: 'nested',
-    },
     autoprefixer: { remove: false },
     terser: {
       extractComments: false,
@@ -34,6 +16,13 @@ mix
   });
 
 if (!mix.inProduction()) {
-  mix.sourceMaps();
-  mix.webpackConfig({ devtool: 'inline-source-map' });
+  mix
+    .sourceMaps()
+    .webpackConfig({ devtool: 'inline-source-map' })
+    .browserSync({
+      proxy: process.env.APP_URL,
+      notify: false,
+      open: false,
+      files: ['**/*.php', 'style.css', 'script.js'],
+    });
 }

@@ -1,0 +1,45 @@
+@use 'sass:map';
+
+@import '../variables';
+
+html {
+  scroll-behavior: smooth;
+  font-size: 14px;
+
+  ::selection {
+    background-color: map.get($colors, primary-100);
+    color: map.get($colors, primary-600);
+  }
+
+  ::-webkit-scrollbar {
+    width: 0.6rem;
+    height: 0.6rem;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: map.get($colors, primary-600);
+  }
+
+  ::-webkit-scrollbar-track {
+    background: map.get($colors, primary-100);
+  }
+}
+
+body.page {
+  font-family: 'Open Sans', sans-serif;
+  color: map.get($colors, gray-900);
+  line-height: 1.6;
+  font-size: 1rem;
+  overflow-x: hidden;
+  position: relative;
+  min-width: 320px;
+  font-weight: 400;
+  background-color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main.main {
+  flex-grow: 1;
+}

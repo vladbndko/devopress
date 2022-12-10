@@ -1,0 +1,117 @@
+@use 'sass:map';
+@use 'sass:color';
+
+@import '../variables';
+@import '../mixins';
+
+$buttons: (
+  'primary': (
+    background-color: map.get($colors, primary-600),
+    color: white,
+  ),
+  'danger': (
+    background-color: map.get($colors, danger-600),
+    color: white,
+  ),
+  'warning': (
+    background-color: map.get($colors, warning-600),
+    color: white,
+  ),
+  'dark': (
+    background-color: map.get($colors, gray-900),
+    color: white,
+  ),
+);
+
+@keyframes button-loading-rotate {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.btn {
+  display: inline-block;
+  position: relative;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: map.get($radius, md);
+  text-align: center;
+  cursor: pointer;
+  word-break: break-word;
+  font-weight: 600;
+  white-space: nowrap;
+  text-decoration: none;
+  line-height: 1;
+  background-color: transparent;
+  color: inherit;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 100%;
+  transition: all ease-in-out 0.15s;
+
+  &:hover,
+  &:active,
+  &:focus {
+    outline: none;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  &[disabled],
+  &.is-loading {
+    pointer-events: none;
+    touch-action: none;
+    user-select: none;
+    cursor: default;
+  }
+
+  &[disabled] {
+    opacity: 0.75;
+  }
+
+  &.is-loading {
+    color: transparent !important;
+    &::after {
+      content: '';
+      width: 1.5em;
+      height: 1.5em;
+      position: absolute;
+      border-width: 2px;
+      border-style: solid;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      animation: button-loading-rotate 1s ease-in-out infinite;
+    }
+  }
+
+  @each $name, $button in $buttons {
+    $background-color: map.get($button, background-color);
+    $color: map.get($button, color);
+
+    &.is-#{$name} {
+      background-color: $background-color;
+      color: $color;
+      &:hover {
+        background-color: lighten($background-color, 3%);
+      }
+      &:active {
+        background-color: darken($background-color, 3%);
+      }
+      &:focus {
+        box-shadow: 0 0 0 0.25rem rgba($background-color, 0.4);
+      }
+      &.is-loading {
+        &::after {
+          border-color: rgba($color, 0.15);
+          border-top-color: $color;
+        }
+      }
+    }
+  }
+}

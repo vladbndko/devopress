@@ -1,0 +1,18 @@
+/*!
+Theme Name: Devopress
+Theme URI: https://github.com/vladbndko/devopress
+Description: Devopress WordPress Theme
+
+Author: Vladyslav Bondarenko
+Author URI: https://vladbndko.dev/
+
+Version: 2.0.0
+Tested up to: 6.1.1
+Requires PHP: 8.1
+Text Domain: devopress
+*/
+
+@import 'variables';
+@import 'vendors';
+@import 'components/components';
+@import 'layouts/layouts';

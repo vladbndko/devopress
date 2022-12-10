@@ -1,0 +1,135 @@
+@use 'sass:map';
+@use 'sass:color';
+
+@import '../variables';
+@import '../functions';
+@import '../mixins';
+
+.form {
+  $focus-shadow: 0 0 0 0.25rem rgba(color(primary-500), 0.4);
+  $border: 1px solid color(gray-300);
+
+  &-group {
+    padding-bottom: 0.5rem;
+  }
+
+  &-label {
+    margin-bottom: 0.5rem;
+    line-height: 1.15;
+    display: inline-block;
+    width: 100%;
+    font-size: 80%;
+    font-weight: 700;
+  }
+
+  &-control {
+    border-radius: radius(md);
+    padding: 0.75rem 1rem;
+    display: inline-block;
+    width: 100%;
+    background-color: white;
+    border: $border;
+    line-height: inherit;
+    &::placeholder {
+      color: color(gray-400);
+      opacity: 1;
+    }
+    &:focus {
+      outline: none;
+      border-color: color(gray-500);
+      box-shadow: $focus-shadow;
+    }
+  }
+  &-message {
+    font-size: 80%;
+    &.is-invalid {
+      color: color(danger-500);
+    }
+  }
+
+  // Check
+  &-check {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+
+    &:focus ~ .form-label::before {
+      box-shadow: $focus-shadow;
+    }
+
+    ~ .form-label {
+      cursor: pointer;
+      position: relative;
+      width: auto;
+      padding-left: 1.5rem;
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        width: 1rem;
+        height: 1rem;
+        left: 0;
+        top: 0;
+      }
+
+      &::before {
+        pointer-events: none;
+        z-index: 1;
+        border: $border;
+      }
+
+      &::after {
+        z-index: 2;
+        transform: scale(0);
+        opacity: 0;
+      }
+    }
+
+    &[disabled] {
+      ~ .form-label {
+        cursor: not-allowed;
+        opacity: 0.4;
+
+        &::before,
+        &::after {
+          opacity: 0.7 !important;
+        }
+      }
+    }
+
+    &:checked {
+      ~ .form-label {
+        &::after {
+          opacity: 1;
+          transform: scale(0.6);
+          background-color: color(primary-500);
+        }
+      }
+    }
+
+    // Type radio
+    &[type='radio'] {
+      ~ [class*='label'] {
+        &::before,
+        &::after {
+          border-radius: 50%;
+        }
+      }
+    }
+
+    // Type checkbox
+    &[type='checkbox'] {
+      ~ [class*='label'] {
+        &::before,
+        &::after {
+          border-radius: radius(sm);
+        }
+      }
+    }
+  }
+}
+
+textarea.form-control {
+  resize: none;
+}

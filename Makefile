@@ -1,25 +1,11 @@
-install:
-	composer install; npm install
+down:
+	docker compose down
+
+up: down
+	docker compose up -d --build
 
 dev:
-	npm run development
+	npm run dev
 
-watch:
-	npm run watch-poll
-
-prod:
-	npm run production
-
-favicon:
-	npm run favicon
-
-pot:
-	wp i18n make-pot . languages/devopress.pot
-
-mailhog:
-	~/go/bin/MailHog
-
-src = assets/images/raw/
-dest = assets/images/
-compress:
-	npx @squoosh/cli ${src}${image} -d ${dest} --${encoder} ${options}
+build:
+	npm run build

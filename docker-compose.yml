@@ -1,0 +1,72 @@
+version: '3.9'
+
+services:
+    # App
+    app:
+        container_name: devopress-app
+        build: .
+        restart: unless-stopped
+        tty: true
+        depends_on:
+            - mysql
+        ports:
+            - '${APP_HTTP_PORT:-80}:80'
+        volumes:
+            - ../../../:/usr/share/nginx/html:delegated
+
+    # Node
+    node:
+        container_name: devopress-node
+        image: node:16-alpine
+        volumes:
+            - ../../../:/usr/share/nginx/html:delegated
+        working_dir: /usr/share/nginx/html/wp-content/themes/devopress
+
+    # MySQL
+    mysql:
+        container_name: devopress-mysql
+        image: mysql:8.0.31
+        restart: unless-stopped
+        tty: true
+        ports:
+            - '${DB_PORT:-3306}:3306'
+        environment:
+            MYSQL_DATABASE: ${DB_DATABASE}
+            MYSQL_USER: ${DB_USERNAME}
+            MYSQL_PASSWORD: ${DB_PASSWORD}
+            MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+        volumes:
+            - mysql_data:/var/lib/mysql
+
+    # PHPMyAdmin
+    phpmyadmin:
+        container_name: devopress-phpmyadmin
+        depends_on:
+            - mysql
+        image: phpmyadmin:5.2.0-apache
+        restart: unless-stopped
+        tty: true
+        ports:
+            - '${PMA_HTTP_PORT:-8080}:80'
+        environment:
+            PMA_ARBITRARY: 1
+            PMA_HOST: mysql
+            PMA_USER: ${DB_USERNAME}
+            PMA_PASSWORD: ${DB_PASSWORD}
+            MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+            UPLOAD_LIMIT: 1024M
+
+    # MailHog
+    mailhog:
+        container_name: devopress-mailhog
+        image: mailhog/mailhog
+        restart: unless-stopped
+        tty: true
+        logging:
+            driver: none
+        ports:
+            - '${MAILHOG_SMTP_PORT:-1025}:1025'
+            - '${MAILHOG_HTTP_PORT:-8025}:8025'
+
+volumes:
+    mysql_data:
