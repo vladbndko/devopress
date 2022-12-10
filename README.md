@@ -1,4 +1,4 @@
-# Triumfhus
+# Devopress
 Devopress WordPress Theme
 
 ## Get started:
